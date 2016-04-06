@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>2.0</version>
-    <date>2012-11-05T16:41:54Z</date>
+    <version>3.0</version>
+    <date>2016-04-06T07:56:59Z</date>
     <groups>
         <group>
             <name>ZBX-FORTINET-TEMPLATES</name>
@@ -11,6 +11,7 @@
         <template>
             <template>ZBX-FORTINET-ANTIVIRUS</template>
             <name>ZBX-FORTINET-ANTIVIRUS</name>
+            <description/>
             <groups>
                 <group>
                     <name>ZBX-FORTINET-TEMPLATES</name>
@@ -27,14 +28,17 @@
                     <name>Anti-virus for virtual domain</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.3.2.1.1.2</snmp_oid>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.12356.101.3.2.1.1.2]</snmp_oid>
                     <key>fgAvVdEntName</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <delay_flex/>
                     <params/>
@@ -45,166 +49,14 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <filter>:</filter>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
                     <lifetime>7</lifetime>
                     <description/>
                     <item_prototypes>
-                        <item_prototype>
-                            <name>Number of over-sized file transmissions blocked in the virtual domain $1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.12356.101.8.2.1.1.18.{#SNMPINDEX}</snmp_oid>
-                            <key>fgAvOversizedBlocked[{#SNMPVALUE}]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Anti-Virus</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Number of over-sized file transmissions detected in the virtual domain $1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.12356.101.8.2.1.1.17.{#SNMPINDEX}</snmp_oid>
-                            <key>fgAvOversizedDetected[{#SNMPVALUE}]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Anti-Virus</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Number of virus transmissions blocked in the virtual domain $1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.12356.101.8.2.1.1.2.{#SNMPINDEX}</snmp_oid>
-                            <key>fgAvVirusBlocked[{#SNMPVALUE}]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Anti-Virus</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Number of virus transmissions detected in the virtual domain $1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.12356.101.8.2.1.1.1.{#SNMPINDEX}</snmp_oid>
-                            <key>fgAvVirusDetected[{#SNMPVALUE}]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Anti-Virus</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
                         <item_prototype>
                             <name>Number of virus transmissions over FTP blocked in the virtual domain $1</name>
                             <type>4</type>
@@ -220,9 +72,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -243,6 +98,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Number of virus transmissions over FTP detected in the virtual domain $1</name>
@@ -259,9 +116,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -282,6 +142,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Number of virus transmissions over HTTP blocked in the virtual domain $1</name>
@@ -298,9 +160,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -321,6 +186,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Number of virus transmissions over HTTP detected in the virtual domain $1</name>
@@ -337,9 +204,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -360,6 +230,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Number of virus transmissions over IMAP blocked in the virtual domain $1</name>
@@ -376,9 +248,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -399,6 +274,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Number of virus transmissions over IMAP detected in the virtual domain $1</name>
@@ -415,9 +292,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -438,6 +318,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Number of virus transmissions over IM protocols blocked in the virtual domain $1</name>
@@ -454,9 +336,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -477,6 +362,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Number of virus transmissions over IM protocols detected in the virtual domain $1</name>
@@ -493,9 +380,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -516,6 +406,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Number of virus transmissions over NNTP blocked in the virtual domain $1</name>
@@ -532,9 +424,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -555,6 +450,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Number of virus transmissions over NNTP detected in the virtual domain $1</name>
@@ -571,9 +468,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -594,6 +494,96 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Number of over-sized file transmissions blocked in the virtual domain $1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.12356.101.8.2.1.1.18.{#SNMPINDEX}</snmp_oid>
+                            <key>fgAvOversizedBlocked[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>7</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Anti-Virus</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Number of over-sized file transmissions detected in the virtual domain $1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.12356.101.8.2.1.1.17.{#SNMPINDEX}</snmp_oid>
+                            <key>fgAvOversizedDetected[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>7</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Anti-Virus</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Number of virus transmissions over POP3 blocked in the virtual domain $1</name>
@@ -610,9 +600,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -633,6 +626,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Number of virus transmissions over POP3 detected in the virtual domain $1</name>
@@ -649,9 +644,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -672,6 +670,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Number of virus transmissions over SMTP blocked in the virtual domain $1</name>
@@ -688,9 +688,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -711,6 +714,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Number of virus transmissions over SMTP detected in the virtual domain $1</name>
@@ -727,9 +732,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -750,332 +758,458 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Number of virus transmissions blocked in the virtual domain $1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.12356.101.8.2.1.1.2.{#SNMPINDEX}</snmp_oid>
+                            <key>fgAvVirusBlocked[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>7</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Anti-Virus</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Number of virus transmissions detected in the virtual domain $1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.12356.101.8.2.1.1.1.{#SNMPINDEX}</snmp_oid>
+                            <key>fgAvVirusDetected[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>7</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Anti-Virus</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(600)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(600)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(600)} and {ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(600)}</expression>
                             <name>An increase of 20% of over-sized file transmission blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of over-sized file transmission detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of virus transmission blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of virus transmission detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of virus transmission over FTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of virus transmission over FTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of virus transmission over HTTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of virus transmission over HTTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of virus transmission over IMAP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of virus transmission over IMAP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of virus transmission over IM protocols blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of virus transmission over IM protocols detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of virus transmission over NNTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of virus transmission over NNTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of virus transmission over POP3 blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of virus transmission over POP3 detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of virus transmission over SMTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of virus transmission over SMTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of over-sized file transmission blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of over-sized file transmission detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of virus transmission blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of virus transmission detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of virus transmission over FTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of virus transmission over FTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of virus transmission over HTTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of virus transmission over HTTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of virus transmission over IMAP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of virus transmission over IMAP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of virus transmission over IM protocols blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of virus transmission over IM protocols detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of virus transmission over NNTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of virus transmission over NNTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of virus transmission over POP3 blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of virus transmission over POP3 detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of virus transmission over SMTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)} &amp; {ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of virus transmission over SMTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(600)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)}</expression>
@@ -1085,6 +1219,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)}</expression>
@@ -1094,6 +1229,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(600)}</expression>
@@ -1103,6 +1239,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(600)}</expression>
@@ -1112,6 +1249,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
@@ -1121,6 +1259,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
@@ -1130,6 +1269,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
@@ -1139,6 +1279,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
@@ -1148,6 +1289,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
@@ -1157,6 +1299,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
@@ -1166,6 +1309,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
@@ -1175,6 +1319,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)}</expression>
@@ -1184,6 +1329,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
@@ -1193,6 +1339,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
@@ -1202,6 +1349,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)}</expression>
@@ -1211,6 +1359,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)}</expression>
@@ -1220,6 +1369,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
@@ -1229,6 +1379,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
@@ -1238,6 +1389,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes>
@@ -1594,6 +1746,7 @@
                             </graph_items>
                         </graph_prototype>
                     </graph_prototypes>
+                    <host_prototypes/>
                 </discovery_rule>
             </discovery_rules>
             <macros/>

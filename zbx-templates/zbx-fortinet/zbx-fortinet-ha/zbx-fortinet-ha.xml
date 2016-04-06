@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>2.0</version>
-    <date>2012-11-05T16:54:42Z</date>
+    <version>3.0</version>
+    <date>2016-04-06T08:06:24Z</date>
     <groups>
         <group>
             <name>ZBX-FORTINET-TEMPLATES</name>
@@ -11,6 +11,7 @@
         <template>
             <template>ZBX-FORTINET-HA</template>
             <name>ZBX-FORTINET-HA</name>
+            <description/>
             <groups>
                 <group>
                     <name>ZBX-FORTINET-TEMPLATES</name>
@@ -37,9 +38,12 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -62,6 +66,7 @@
                     <valuemap>
                         <name>FgBoolState</name>
                     </valuemap>
+                    <logtimefmt/>
                 </item>
                 <item>
                     <name>HA cluster group name</name>
@@ -72,15 +77,18 @@
                     <key>fgHaGroupName</key>
                     <delay>300</delay>
                     <history>7</history>
-                    <trends>365</trends>
+                    <trends>0</trends>
                     <status>0</status>
                     <value_type>1</value_type>
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -101,14 +109,15 @@
                         </application>
                     </applications>
                     <valuemap/>
+                    <logtimefmt/>
                 </item>
                 <item>
-                    <name>HA clustering priority</name>
+                    <name>Status of a master override flag</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <multiplier>0</multiplier>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.13.1.3.0</snmp_oid>
-                    <key>fgHaPriority</key>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.13.1.4.0</snmp_oid>
+                    <key>fgHaOverride</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -117,48 +126,12 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>High availability</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
-                    <name>HA mode</name>
-                    <type>4</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <multiplier>0</multiplier>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.13.1.1.0</snmp_oid>
-                    <key>fgHaSystemMode</key>
-                    <delay>300</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -179,8 +152,52 @@
                         </application>
                     </applications>
                     <valuemap>
-                        <name>FgHaMode</name>
+                        <name>FgBoolState</name>
                     </valuemap>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>HA clustering priority</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>0</multiplier>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.13.1.3.0</snmp_oid>
+                    <key>fgHaPriority</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>High availability</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Load-balancing schedule of cluster</name>
@@ -197,9 +214,12 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -222,14 +242,15 @@
                     <valuemap>
                         <name>FgHaLbSchedule</name>
                     </valuemap>
+                    <logtimefmt/>
                 </item>
                 <item>
-                    <name>Status of a master override flag</name>
+                    <name>HA mode</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <multiplier>0</multiplier>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.13.1.4.0</snmp_oid>
-                    <key>fgHaOverride</key>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.13.1.1.0</snmp_oid>
+                    <key>fgHaSystemMode</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -238,9 +259,12 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -261,8 +285,9 @@
                         </application>
                     </applications>
                     <valuemap>
-                        <name>FgBoolState</name>
+                        <name>FgHaMode</name>
                     </valuemap>
+                    <logtimefmt/>
                 </item>
             </items>
             <discovery_rules>
@@ -270,14 +295,17 @@
                     <name>High Availability</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.13.2.1.1.11</snmp_oid>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.12356.101.13.2.1.1.11]</snmp_oid>
                     <key>fgHaStatsHostname</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <delay_flex/>
                     <params/>
@@ -288,10 +316,58 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <filter>:</filter>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
                     <lifetime>7</lifetime>
                     <description/>
                     <item_prototypes>
+                        <item_prototype>
+                            <name>Number of anti-virus events triggered on cluster unit $1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.12356.101.13.2.1.1.10.{#SNMPINDEX}</snmp_oid>
+                            <key>fgHaStatsAvCount[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>7</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>events</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>High availability</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
                         <item_prototype>
                             <name>CPU usage for cluster unit $1</name>
                             <type>4</type>
@@ -307,9 +383,12 @@
                             <allowed_hosts/>
                             <units>%</units>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -330,25 +409,30 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
-                            <name>Current session count for cluster unit $1</name>
+                            <name>Number of IDS/IPS events triggered on cluster unit $1</name>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.12356.101.13.2.1.1.6.{#SNMPINDEX}</snmp_oid>
-                            <key>fgHaStatsSessCount[{#SNMPVALUE}]</key>
+                            <snmp_oid>.1.3.6.1.4.1.12356.101.13.2.1.1.9.{#SNMPINDEX}</snmp_oid>
+                            <key>fgHaStatsIdsCount[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
-                            <units>sess</units>
+                            <units>events</units>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -369,6 +453,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Memory usage for cluster unit $1</name>
@@ -385,9 +471,12 @@
                             <allowed_hosts/>
                             <units>%</units>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -408,6 +497,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Network bandwidth usage for unit $1</name>
@@ -424,9 +515,12 @@
                             <allowed_hosts/>
                             <units>bps</units>
                             <delta>1</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1000</formula>
                             <delay_flex/>
@@ -447,25 +541,30 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
-                            <name>Number of anti-virus events triggered on cluster unit $1</name>
+                            <name>Current session count for cluster unit $1</name>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.12356.101.13.2.1.1.10.{#SNMPINDEX}</snmp_oid>
-                            <key>fgHaStatsAvCount[{#SNMPVALUE}]</key>
+                            <snmp_oid>.1.3.6.1.4.1.12356.101.13.2.1.1.6.{#SNMPINDEX}</snmp_oid>
+                            <key>fgHaStatsSessCount[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
-                            <units>events</units>
+                            <units>sess</units>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -486,65 +585,30 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Number of IDS/IPS events triggered on cluster unit $1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.12356.101.13.2.1.1.9.{#SNMPINDEX}</snmp_oid>
-                            <key>fgHaStatsIdsCount[{#SNMPVALUE}]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>events</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>High availability</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>({ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)}-{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].avg(86400)})&gt;0.2*{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)} &amp; ({ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)}-{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].avg(86400)})&lt;0.3*{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>({ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)}-{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].avg(86400)})&gt;0.2*{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)} and ({ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)}-{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].avg(86400)})&lt;0.3*{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 20% of active sessions on unit {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>({ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)}-{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].avg(86400)})&gt;0.3*{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)} &amp; ({ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)}-{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].avg(86400)})&lt;0.4*{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>({ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)}-{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].avg(86400)})&gt;0.3*{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)} and ({ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)}-{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].avg(86400)})&lt;0.4*{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)}</expression>
                             <name>An increase of 30% of active sessions on unit {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>({ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)}-{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].avg(86400)})&gt;0.4*{ZBX-FORTINET-HA:fgHaStatsSessCount[{#SNMPVALUE}].last(0)}</expression>
@@ -554,6 +618,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-HA:fgHaStatsCpuUsage[{#SNMPVALUE}].avg(600)}&gt;50</expression>
@@ -563,6 +628,7 @@
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-HA:fgHaStatsCpuUsage[{#SNMPVALUE}].avg(600)}&gt;60</expression>
@@ -572,6 +638,7 @@
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-HA:fgHaStatsCpuUsage[{#SNMPVALUE}].avg(600)}&gt;80</expression>
@@ -581,6 +648,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-HA:fgHaStatsMemUsage[{#SNMPVALUE}].avg(600)}&gt;60</expression>
@@ -590,6 +658,7 @@
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-HA:fgHaStatsMemUsage[{#SNMPVALUE}].avg(600)}&gt;70</expression>
@@ -599,6 +668,7 @@
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-HA:fgHaStatsMemUsage[{#SNMPVALUE}].avg(600)}&gt;80</expression>
@@ -608,6 +678,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes>
@@ -740,6 +811,7 @@
                             </graph_items>
                         </graph_prototype>
                     </graph_prototypes>
+                    <host_prototypes/>
                 </discovery_rule>
             </discovery_rules>
             <macros/>
@@ -747,4 +819,73 @@
             <screens/>
         </template>
     </templates>
+    <value_maps>
+        <value_map>
+            <name>FgBoolState</name>
+            <mappings>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>disabled</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>enabled</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <value_map>
+            <name>FgHaLbSchedule</name>
+            <mappings>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>none</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>hub</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>leastConnections</newvalue>
+                </mapping>
+                <mapping>
+                    <value>4</value>
+                    <newvalue>roundRobin</newvalue>
+                </mapping>
+                <mapping>
+                    <value>5</value>
+                    <newvalue>weightedRoundRobin</newvalue>
+                </mapping>
+                <mapping>
+                    <value>6</value>
+                    <newvalue>random</newvalue>
+                </mapping>
+                <mapping>
+                    <value>7</value>
+                    <newvalue>ipBased</newvalue>
+                </mapping>
+                <mapping>
+                    <value>8</value>
+                    <newvalue>ipPortBased</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <value_map>
+            <name>FgHaMode</name>
+            <mappings>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>standalone</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>activeActive</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>activePassive</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+    </value_maps>
 </zabbix_export>

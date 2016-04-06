@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>2.0</version>
-    <date>2012-10-15T19:53:35Z</date>
+    <version>3.0</version>
+    <date>2016-04-06T08:09:44Z</date>
     <groups>
         <group>
             <name>ZBX-FORTINET-TEMPLATES</name>
@@ -11,6 +11,7 @@
         <template>
             <template>ZBX-FORTINET-VDOM</template>
             <name>ZBX-FORTINET-VDOM</name>
+            <description/>
             <groups>
                 <group>
                     <name>ZBX-FORTINET-TEMPLATES</name>
@@ -27,14 +28,17 @@
                     <name>Virtual Domain</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.3.2.1.1.2</snmp_oid>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.12356.101.3.2.1.1.2]</snmp_oid>
                     <key>fgVdEntName</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <delay_flex/>
                     <params/>
@@ -45,7 +49,11 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <filter>:</filter>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
                     <lifetime>365</lifetime>
                     <description/>
                     <item_prototypes>
@@ -64,9 +72,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -89,10 +100,13 @@
                             <valuemap>
                                 <name>FgOpMode</name>
                             </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes/>
                     <graph_prototypes/>
+                    <host_prototypes/>
                 </discovery_rule>
             </discovery_rules>
             <macros/>
@@ -100,4 +114,19 @@
             <screens/>
         </template>
     </templates>
+    <value_maps>
+        <value_map>
+            <name>FgOpMode</name>
+            <mappings>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>nat</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>transparent</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+    </value_maps>
 </zabbix_export>

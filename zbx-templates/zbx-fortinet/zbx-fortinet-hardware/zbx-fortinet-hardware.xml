@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>2.0</version>
-    <date>2012-11-05T16:56:10Z</date>
+    <version>3.0</version>
+    <date>2016-04-06T08:06:42Z</date>
     <groups>
         <group>
             <name>ZBX-FORTINET-TEMPLATES</name>
@@ -11,6 +11,7 @@
         <template>
             <template>ZBX-FORTINET-HARDWARE</template>
             <name>ZBX-FORTINET-HARDWARE</name>
+            <description/>
             <groups>
                 <group>
                     <name>ZBX-FORTINET-TEMPLATES</name>
@@ -27,14 +28,17 @@
                     <name>Hardware inventory</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.13.2.1.1.11</snmp_oid>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.12356.101.13.2.1.1.11]</snmp_oid>
                     <key>fgHardInvHostname</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <delay_flex/>
                     <params/>
@@ -45,7 +49,11 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <filter>:</filter>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
                     <lifetime>7</lifetime>
                     <description/>
                     <item_prototypes>
@@ -58,15 +66,18 @@
                             <key>fgHardInvSerial[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
-                            <trends>365</trends>
+                            <trends>0</trends>
                             <status>0</status>
                             <value_type>1</value_type>
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -87,6 +98,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Software version of $1</name>
@@ -97,15 +110,18 @@
                             <key>fgHardInvSoftVers[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
-                            <trends>365</trends>
+                            <trends>0</trends>
                             <status>0</status>
                             <value_type>1</value_type>
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -126,6 +142,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
@@ -137,9 +155,11 @@
                             <priority>1</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes/>
+                    <host_prototypes/>
                 </discovery_rule>
             </discovery_rules>
             <macros/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>2.0</version>
-    <date>2013-09-20T08:36:47Z</date>
+    <version>3.0</version>
+    <date>2016-04-06T08:30:43Z</date>
     <groups>
         <group>
             <name>ZBX-FORTINET-TEMPLATES</name>
@@ -11,6 +11,7 @@
         <template>
             <template>ZBX-FORTINET-HWSENSORS</template>
             <name>ZBX-FORTINET-HWSENSORS</name>
+            <description/>
             <groups>
                 <group>
                     <name>ZBX-FORTINET-TEMPLATES</name>
@@ -27,14 +28,17 @@
                     <name>fgHwSensor_FAN</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.3.2.1.2</snmp_oid>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.12356.101.4.3.2.1.2]</snmp_oid>
                     <key>fgHwSensorEntName_FAN</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <delay_flex/>
                     <params/>
@@ -45,7 +49,18 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <filter>{#SNMPVALUE}:^(Mid-|Back-|AMC\s|)Fan\s[0-9]|^(CPU|IOM)\sFan|^PS[0-9]\sFan\s[0-9]</filter>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions>
+                            <condition>
+                                <macro>{#SNMPVALUE}</macro>
+                                <value>^(Mid-|Back-|AMC\s|)Fan\s[0-9]|^(CPU|IOM)\sFan|^PS[0-9]\sFan\s[0-9]</value>
+                                <operator>8</operator>
+                                <formulaid>A</formulaid>
+                            </condition>
+                        </conditions>
+                    </filter>
                     <lifetime>30</lifetime>
                     <description/>
                     <item_prototypes>
@@ -64,9 +79,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -87,8 +105,10 @@
                                 </application>
                             </applications>
                             <valuemap>
-                                <name>fgHwSensorEntAlarmStatus</name>
+                                <name>FgHwSensorEntAlarmStatus</name>
                             </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Fan speed on {#SNMPVALUE}</name>
@@ -105,9 +125,12 @@
                             <allowed_hosts/>
                             <units>RPM</units>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -128,17 +151,20 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-HWSENSORS:fgHwSensorEntAlarmStatus_FAN.[&quot;#{#SNMPINDEX}&quot;].last(0)}#0</expression>
+                            <expression>{ZBX-FORTINET-HWSENSORS:fgHwSensorEntAlarmStatus_FAN.[&quot;#{#SNMPINDEX}&quot;].last(0)}&lt;&gt;0</expression>
                             <name>FAN {#SNMPVALUE} on {HOST.NAME} is on alarm status</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes>
@@ -175,19 +201,23 @@
                             </graph_items>
                         </graph_prototype>
                     </graph_prototypes>
+                    <host_prototypes/>
                 </discovery_rule>
                 <discovery_rule>
                     <name>fgHwSensor_PSStatus</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.3.2.1.2</snmp_oid>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.12356.101.4.3.2.1.2]</snmp_oid>
                     <key>fgHwSensorEntName_PSStatus</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <delay_flex/>
                     <params/>
@@ -198,7 +228,18 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <filter>{#SNMPVALUE}:^PS[0-9]\sStatus</filter>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions>
+                            <condition>
+                                <macro>{#SNMPVALUE}</macro>
+                                <value>^PS[0-9]\sStatus</value>
+                                <operator>8</operator>
+                                <formulaid>A</formulaid>
+                            </condition>
+                        </conditions>
+                    </filter>
                     <lifetime>30</lifetime>
                     <description/>
                     <item_prototypes>
@@ -217,9 +258,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -240,35 +284,42 @@
                                 </application>
                             </applications>
                             <valuemap>
-                                <name>fgHwSensorEntAlarmStatus</name>
+                                <name>FgHwSensorEntAlarmStatus</name>
                             </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-HWSENSORS:fgHwSensorEntAlarmStatus_PSStatus.[&quot;#{#SNMPINDEX}&quot;].last(0)}#0</expression>
+                            <expression>{ZBX-FORTINET-HWSENSORS:fgHwSensorEntAlarmStatus_PSStatus.[&quot;#{#SNMPINDEX}&quot;].last(0)}&lt;&gt;0</expression>
                             <name>PowerSupply {#SNMPVALUE} on {HOST.NAME} is on alarm status</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes/>
+                    <host_prototypes/>
                 </discovery_rule>
                 <discovery_rule>
                     <name>fgHwSensor_Temp</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.3.2.1.2</snmp_oid>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.12356.101.4.3.2.1.2]</snmp_oid>
                     <key>fgHwSensorEntName_Temp</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <delay_flex/>
                     <params/>
@@ -279,7 +330,18 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <filter>{#SNMPVALUE}:^DTS\sCPU[0-9]?|^ADT74(90|62)\s.+|^(IOM\s|)LM75|^(PS[0-9]|CPU Amb\.|IOH Amb\.|Front\sPanel|Fan\sModules|CPU\sArea)\sTemp|^(M\/B|Midfan)\sTemp\s[0-9]|^Midfan\sOutflow\s[LR]</filter>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions>
+                            <condition>
+                                <macro>{#SNMPVALUE}</macro>
+                                <value>^DTS\sCPU[0-9]?|^ADT74(90|62)\s.+|^(IOM\s|)LM75|^(PS[0-9]|CPU Amb\.|IOH Amb\.|Front\sPanel|Fan\sModules|CPU\sArea)\sTemp|^(M\/B|Midfan)\sTemp\s[0-9]|^Midfan\sOutflow\s[LR]</value>
+                                <operator>8</operator>
+                                <formulaid>A</formulaid>
+                            </condition>
+                        </conditions>
+                    </filter>
                     <lifetime>30</lifetime>
                     <description/>
                     <item_prototypes>
@@ -298,9 +360,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -321,8 +386,10 @@
                                 </application>
                             </applications>
                             <valuemap>
-                                <name>fgHwSensorEntAlarmStatus</name>
+                                <name>FgHwSensorEntAlarmStatus</name>
                             </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Temperature on {#SNMPVALUE}</name>
@@ -339,9 +406,12 @@
                             <allowed_hosts/>
                             <units>C</units>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -362,17 +432,20 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-HWSENSORS:fgHwSensorEntAlarmStatus_Temp.[&quot;#{#SNMPINDEX}&quot;].last(0)}#0</expression>
+                            <expression>{ZBX-FORTINET-HWSENSORS:fgHwSensorEntAlarmStatus_Temp.[&quot;#{#SNMPINDEX}&quot;].last(0)}&lt;&gt;0</expression>
                             <name>Temp {#SNMPVALUE} on {HOST.NAME} is on alarm status</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes>
@@ -409,19 +482,23 @@
                             </graph_items>
                         </graph_prototype>
                     </graph_prototypes>
+                    <host_prototypes/>
                 </discovery_rule>
                 <discovery_rule>
                     <name>fgHwSensor_Volts</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.3.2.1.2</snmp_oid>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.12356.101.4.3.2.1.2]</snmp_oid>
                     <key>fgHwSensorEntName_Volts</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <delay_flex/>
                     <params/>
@@ -432,7 +509,18 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <filter>{#SNMPVALUE}:^P[13]V[138]_.+|^AD[_\+].+|^VCCP|^\+(12|5|3\.3|1\.5|1\.25|1\.1)V.*|^PS[0-9]\s(VIN|VOUT|12V\sOutput)|^INA219\sPS[0-9]\sV(sht|bus)|^IOM\s(Vcc|1\.?2V).*|^PV\sVccp\sCPU0|^Midfan\s\+3\.3V|^Vcc\s\+1\.2V\s[AB]|^Vcore\s.|^1V\/1\.2V\sPHY</filter>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions>
+                            <condition>
+                                <macro>{#SNMPVALUE}</macro>
+                                <value>^P[13]V[138]_.+|^AD[_\+].+|^VCCP|^\+(12|5|3\.3|1\.5|1\.25|1\.1)V.*|^PS[0-9]\s(VIN|VOUT|12V\sOutput)|^INA219\sPS[0-9]\sV(sht|bus)|^IOM\s(Vcc|1\.?2V).*|^PV\sVccp\sCPU0|^Midfan\s\+3\.3V|^Vcc\s\+1\.2V\s[AB]|^Vcore\s.|^1V\/1\.2V\sPHY</value>
+                                <operator>8</operator>
+                                <formulaid>A</formulaid>
+                            </condition>
+                        </conditions>
+                    </filter>
                     <lifetime>30</lifetime>
                     <description/>
                     <item_prototypes>
@@ -451,9 +539,12 @@
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -474,8 +565,10 @@
                                 </application>
                             </applications>
                             <valuemap>
-                                <name>fgHwSensorEntAlarmStatus</name>
+                                <name>FgHwSensorEntAlarmStatus</name>
                             </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Voltage on {#SNMPVALUE}</name>
@@ -492,9 +585,12 @@
                             <allowed_hosts/>
                             <units>V</units>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -515,17 +611,20 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-HWSENSORS:fgHwSensorEntAlarmStatus_Volts.[&quot;#{#SNMPINDEX}&quot;].last(0)}#0</expression>
+                            <expression>{ZBX-FORTINET-HWSENSORS:fgHwSensorEntAlarmStatus_Volts.[&quot;#{#SNMPINDEX}&quot;].last(0)}&lt;&gt;0</expression>
                             <name>Voltage {#SNMPVALUE} on {HOST.NAME} is on alarm status</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes>
@@ -562,6 +661,7 @@
                             </graph_items>
                         </graph_prototype>
                     </graph_prototypes>
+                    <host_prototypes/>
                 </discovery_rule>
             </discovery_rules>
             <macros/>
@@ -569,4 +669,19 @@
             <screens/>
         </template>
     </templates>
+    <value_maps>
+        <value_map>
+            <name>FgHwSensorEntAlarmStatus</name>
+            <mappings>
+                <mapping>
+                    <value>0</value>
+                    <newvalue>false</newvalue>
+                </mapping>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>true</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+    </value_maps>
 </zabbix_export>

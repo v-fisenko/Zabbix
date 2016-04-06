@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>2.0</version>
-    <date>2013-09-20T07:22:36Z</date>
+    <version>3.0</version>
+    <date>2016-04-06T08:05:53Z</date>
     <groups>
         <group>
             <name>ZBX-FORTINET-TEMPLATES</name>
@@ -11,6 +11,7 @@
         <template>
             <template>ZBX-FORTINET-CPU</template>
             <name>ZBX-FORTINET-CPU</name>
+            <description/>
             <groups>
                 <group>
                     <name>ZBX-FORTINET-TEMPLATES</name>
@@ -37,9 +38,12 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -60,6 +64,7 @@
                         </application>
                     </applications>
                     <valuemap/>
+                    <logtimefmt/>
                 </item>
                 <item>
                     <name>System CPU Usage</name>
@@ -76,9 +81,12 @@
                     <allowed_hosts/>
                     <units>%</units>
                     <delta>0</delta>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -99,6 +107,7 @@
                         </application>
                     </applications>
                     <valuemap/>
+                    <logtimefmt/>
                 </item>
             </items>
             <discovery_rules>
@@ -106,14 +115,17 @@
                     <name>fgProcessor</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.4.2.1.1</snmp_oid>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.12356.101.4.4.2.1.1]</snmp_oid>
                     <key>fgProcessorEntIndex</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <delay_flex/>
                     <params/>
@@ -124,7 +136,11 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <filter>:</filter>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
                     <lifetime>30</lifetime>
                     <description/>
                     <item_prototypes>
@@ -143,9 +159,12 @@
                             <allowed_hosts/>
                             <units>%</units>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -166,45 +185,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Average Usage of User Process over 1min per Processor#$1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.12356.101.4.4.2.1.9.{#SNMPINDEX}</snmp_oid>
-                            <key>fgProcessorUserUsage.[&quot;{#SNMPINDEX}&quot;]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>%</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>CPU</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Average Usage over 1min per Processor#$1</name>
@@ -221,9 +203,12 @@
                             <allowed_hosts/>
                             <units>%</units>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -244,6 +229,8 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Average Usage over 5sec per Processor#$1</name>
@@ -260,9 +247,12 @@
                             <allowed_hosts/>
                             <units>%</units>
                             <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
@@ -283,6 +273,52 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Average Usage of User Process over 1min per Processor#$1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.12356.101.4.4.2.1.9.{#SNMPINDEX}</snmp_oid>
+                            <key>fgProcessorUserUsage.[&quot;{#SNMPINDEX}&quot;]</key>
+                            <delay>300</delay>
+                            <history>7</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>%</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>CPU</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
@@ -294,6 +330,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes>
@@ -315,18 +352,6 @@
                             <ymin_item_1>0</ymin_item_1>
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
-                                <graph_item>
-                                    <sortorder>3</sortorder>
-                                    <drawtype>4</drawtype>
-                                    <color>C80000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>7</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>ZBX-FORTINET-CPU</host>
-                                        <key>fgProcessorSysUsage.[&quot;{#SNMPINDEX}&quot;]</key>
-                                    </item>
-                                </graph_item>
                                 <graph_item>
                                     <sortorder>0</sortorder>
                                     <drawtype>2</drawtype>
@@ -363,9 +388,22 @@
                                         <key>fgProcessorUserUsage.[&quot;{#SNMPINDEX}&quot;]</key>
                                     </item>
                                 </graph_item>
+                                <graph_item>
+                                    <sortorder>3</sortorder>
+                                    <drawtype>4</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>7</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>ZBX-FORTINET-CPU</host>
+                                        <key>fgProcessorSysUsage.[&quot;{#SNMPINDEX}&quot;]</key>
+                                    </item>
+                                </graph_item>
                             </graph_items>
                         </graph_prototype>
                     </graph_prototypes>
+                    <host_prototypes/>
                 </discovery_rule>
             </discovery_rules>
             <macros/>
@@ -375,7 +413,7 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{ZBX-FORTINET-CPU:fgSysCpuUsage.avg(600)}&gt;50 &amp; {ZBX-FORTINET-CPU:fgSysCpuUsage.avg(600)}&lt;60</expression>
+            <expression>{ZBX-FORTINET-CPU:fgSysCpuUsage.avg(600)}&gt;50 and {ZBX-FORTINET-CPU:fgSysCpuUsage.avg(600)}&lt;60</expression>
             <name>CPU usage exceeded 50%</name>
             <url/>
             <status>0</status>
@@ -385,7 +423,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-FORTINET-CPU:fgSysCpuUsage.avg(600)}&gt;60 &amp; {ZBX-FORTINET-CPU:fgSysCpuUsage.avg(600)}&lt;80</expression>
+            <expression>{ZBX-FORTINET-CPU:fgSysCpuUsage.avg(600)}&gt;60 and {ZBX-FORTINET-CPU:fgSysCpuUsage.avg(600)}&lt;80</expression>
             <name>CPU usage exceeded 60%</name>
             <url/>
             <status>0</status>

@@ -46,7 +46,7 @@ Installation
  
 ### Requirements
 
-This template was tested for Zabbix 2.0.0 and higher.
+This template was tested for Zabbix 3.0.0 and higher.
 
 ###### [echo.something](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/echo.something) 1.0
 

@@ -14,11 +14,15 @@ Templates
   * [ZBX-FORTINET-VDOM](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-vdom) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage virtual domain.
   * [ZBX-FORTINET-IDS](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-ids) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage virtual domain.
   * [ZBX-FORTINET-VPN](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-vpn) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage VPN.
+  * [ZBX-FORTINET-CPU](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-cpu) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage CPU activity.
+  * [ZBX-FORTINET-MEMORY](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-memory) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage Memory activity.
+  * [ZBX-FORTINET-SESSION](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-session) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage firewall session activity.
+  * [ZBX-FORTINET-HWSENSORS](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-hwsensors) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage Hardware Sensors.
 
 Requirements
 ------------
 
-All this templates was tested for Zabbix 2.0.0 and higher. Please see individual template for requirements.
+All this templates was tested for Zabbix 3.0.0 and higher. Please see individual template for requirements.
 
 License
 -------

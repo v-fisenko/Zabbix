@@ -49,7 +49,7 @@ Installation
  
 ### Requirements
 
-This template was tested for Zabbix 2.0.0 and higher.
+This template was tested for Zabbix 3.0.0 and higher.
 
 License
 -------

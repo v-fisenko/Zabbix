@@ -50,7 +50,7 @@ Installation
 
 ### Requirements
 
-This template was tested for Zabbix 2.0.0 and higher.
+This template was tested for Zabbix 3.0.0 and higher.
 
 ###### [if.speed](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/if.speed) 1.0
 

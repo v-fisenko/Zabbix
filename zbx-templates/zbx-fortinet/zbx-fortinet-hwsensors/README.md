@@ -32,7 +32,7 @@ Graphs
 Installation
 ------------
 
-1. Add a value mapping named `fgHwSensorEntAlarmStatus` with the following values:
+1. Add a value mapping named `FgHwSensorEntAlarmStatus` with the following values:
   * 0 => false
   * 1 => true
 2. Import **zbx-fortinet-hwsensors.xml** file into Zabbix.
@@ -41,7 +41,7 @@ Installation
  
 ### Requirements
 
-This template was tested for Zabbix 2.0.0 and higher.
+This template was tested for Zabbix 3.0.0 and higher.
 
 ###### FortiGate Supported
 

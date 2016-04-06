@@ -37,7 +37,7 @@ Installation
  
 ### Requirements
 
-This template was tested for Zabbix 2.0.0 and higher.
+This template was tested for Zabbix 3.0.0 and higher.
 
 ###### [vpn.vdom](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/vpn.vdom) 1.0
 
