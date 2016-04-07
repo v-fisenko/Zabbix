@@ -1,7 +1,7 @@
-ZBX-FORTINET-IDS
+ZBX-FORTINET-IPS
 ================
 
-This template use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage virtual domain on Fortinet devices.
+This template use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage IPS activity.
 
 Items
 -----
@@ -22,12 +22,9 @@ Triggers
 Installation
 ------------
 
-1. Add a value mapping named `FgOpMode` with the following values:
-  * 1 => nat
-  * 2 => transparent
-3. Import **zbx-fortinet-ids.xml** file into Zabbix.
-4. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
-6. Associate **ZBX-FORTINET-IDS** template to the host.
+1. Import **zbx-fortinet-ips.xml** file into Zabbix.
+2. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
+3. Associate **ZBX-FORTINET-IPS** template to the host.
  
 ### Requirements
 

@@ -14,9 +14,9 @@ Installation
 1. Add a value mapping named `FgOpMode` with the following values:
   * 1 => nat
   * 2 => transparent
-3. Import **zbx-fortinet-vdom.xml** file into Zabbix.
-4. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
-6. Associate **ZBX-FORTINET-VDOM** template to the host.
+2. Import **zbx-fortinet-vdom.xml** file into Zabbix.
+3. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
+4. Associate **ZBX-FORTINET-VDOM** template to the host.
  
 ### Requirements
 

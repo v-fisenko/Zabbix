@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>ZBX-FORTINET-IDS</template>
-            <name>ZBX-FORTINET-IDS</name>
+            <template>ZBX-FORTINET-IPS</template>
+            <name>ZBX-FORTINET-IPS</name>
             <description/>
             <groups>
                 <group>
@@ -19,17 +19,17 @@
             </groups>
             <applications>
                 <application>
-                    <name>IDS</name>
+                    <name>IPS</name>
                 </application>
             </applications>
             <items/>
             <discovery_rules>
                 <discovery_rule>
-                    <name>IDS virtual domain</name>
+                    <name>IPS virtual domain</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.12356.101.3.2.1.1.2]</snmp_oid>
-                    <key>fgIdsVdEntName</key>
+                    <key>fgIpsVdEntName</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -94,7 +94,7 @@
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
-                                    <name>IDS</name>
+                                    <name>IPS</name>
                                 </application>
                             </applications>
                             <valuemap/>
@@ -138,7 +138,7 @@
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
-                                    <name>IDS</name>
+                                    <name>IPS</name>
                                 </application>
                             </applications>
                             <valuemap/>
@@ -148,7 +148,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-IDS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-IDS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].avg(600)} and {ZBX-FORTINET-IDS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].last(0)}&lt;1.3*{ZBX-FORTINET-IDS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                            <expression>{ZBX-FORTINET-IPS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-IPS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].avg(600)} and {ZBX-FORTINET-IPS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].last(0)}&lt;1.3*{ZBX-FORTINET-IPS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of blocked intrusions in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -158,7 +158,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-IDS:fgIpsIntrusionsDetected[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-IDS:fgIpsIntrusionsDetected[{#SNMPVALUE}].avg(600)} and {ZBX-FORTINET-IDS:fgIpsIntrusionsDetected[{#SNMPVALUE}].last(0)}&lt;1.3*{ZBX-FORTINET-IDS:fgIpsIntrusionsDetected[{#SNMPVALUE}].avg(600)}</expression>
+                            <expression>{ZBX-FORTINET-IPS:fgIpsIntrusionsDetected[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-IPS:fgIpsIntrusionsDetected[{#SNMPVALUE}].avg(600)} and {ZBX-FORTINET-IPS:fgIpsIntrusionsDetected[{#SNMPVALUE}].last(0)}&lt;1.3*{ZBX-FORTINET-IPS:fgIpsIntrusionsDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of detected intrusions in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -168,7 +168,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-IDS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-IDS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].avg(600)} and {ZBX-FORTINET-IDS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].last(0)}&lt;1.4*{ZBX-FORTINET-IDS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                            <expression>{ZBX-FORTINET-IPS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-IPS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].avg(600)} and {ZBX-FORTINET-IPS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].last(0)}&lt;1.4*{ZBX-FORTINET-IPS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of blocked intrusions in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -178,7 +178,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-IDS:fgIpsIntrusionsDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-IDS:fgIpsIntrusionsDetected[{#SNMPVALUE}].avg(600)} and {ZBX-FORTINET-IDS:fgIpsIntrusionsDetected[{#SNMPVALUE}].last(0)}&lt;1.4*{ZBX-FORTINET-IDS:fgIpsIntrusionsDetected[{#SNMPVALUE}].avg(600)}</expression>
+                            <expression>{ZBX-FORTINET-IPS:fgIpsIntrusionsDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-IPS:fgIpsIntrusionsDetected[{#SNMPVALUE}].avg(600)} and {ZBX-FORTINET-IPS:fgIpsIntrusionsDetected[{#SNMPVALUE}].last(0)}&lt;1.4*{ZBX-FORTINET-IPS:fgIpsIntrusionsDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of detected intrusions in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -188,7 +188,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-IDS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-IDS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                            <expression>{ZBX-FORTINET-IPS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-IPS:fgIpsIntrusionsBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of blocked intrusions in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -198,7 +198,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-IDS:fgIpsIntrusionsDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-IDS:fgIpsIntrusionsDetected[{#SNMPVALUE}].avg(600)}</expression>
+                            <expression>{ZBX-FORTINET-IPS:fgIpsIntrusionsDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-IPS:fgIpsIntrusionsDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of detected intrusions in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>

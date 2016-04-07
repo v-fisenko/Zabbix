@@ -12,7 +12,7 @@ Templates
   * [ZBX-FORTINET-HA](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-ha) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage High Availability.
   * [ZBX-FORTINET-HARDWARE](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-hardware) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage hardware.
   * [ZBX-FORTINET-VDOM](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-vdom) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage virtual domain.
-  * [ZBX-FORTINET-IDS](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-ids) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage virtual domain.
+  * [ZBX-FORTINET-IPS](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-ips) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage IPS activity.
   * [ZBX-FORTINET-VPN](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-vpn) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage VPN.
   * [ZBX-FORTINET-CPU](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-cpu) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage CPU activity.
   * [ZBX-FORTINET-MEMORY](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-memory) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage Memory activity.
