@@ -24,7 +24,7 @@
             </applications>
             <items>
                 <item>
-                    <name>Configuration of an automatic configuration synchronization</name>
+                    <name>HA config - Auto Config Sync</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <multiplier>0</multiplier>
@@ -69,7 +69,50 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>HA cluster group name</name>
+                    <name>HA config - Group ID</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>0</multiplier>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.13.1.2.0</snmp_oid>
+                    <key>fgHaGroupId</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>High availability</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>HA config - Group Name</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <multiplier>0</multiplier>
@@ -112,7 +155,7 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>Status of a master override flag</name>
+                    <name>HA config - Master Override</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <multiplier>0</multiplier>
@@ -157,7 +200,7 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>HA clustering priority</name>
+                    <name>HA config - Unit Priority</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <multiplier>0</multiplier>
@@ -200,7 +243,7 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>Load-balancing schedule of cluster</name>
+                    <name>HA config - Load-balancing Schedule</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <multiplier>0</multiplier>
@@ -245,7 +288,7 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>HA mode</name>
+                    <name>HA config - Mode</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <multiplier>0</multiplier>
@@ -457,6 +500,50 @@
                             <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
+                            <name>Serial Number of master unit during last sync attempt from cluster unit $1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.12356.101.13.2.1.1.2.{#SNMPINDEX}</snmp_oid>
+                            <key>fgHaStatsMasterSerial[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>7</history>
+                            <trends>0</trends>
+                            <status>0</status>
+                            <value_type>1</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>High availability</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
                             <name>Memory usage for cluster unit $1</name>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
@@ -501,7 +588,7 @@
                             <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
-                            <name>Network bandwidth usage for unit $1</name>
+                            <name>Network bandwidth usage for cluster unit $1</name>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>1</multiplier>
@@ -522,7 +609,27 @@
                             <snmpv3_authpassphrase/>
                             <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
-                            <formula>1000</formula>
+                            <formula>1024</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>High availability</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Serial Number of cluster unit $1</name>
@@ -581,7 +688,7 @@
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
-                            <units>sess</units>
+                            <units>sessions</units>
                             <delta>0</delta>
                             <snmpv3_contextname/>
                             <snmpv3_securityname/>
@@ -609,6 +716,52 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Current HA Sync status on cluster unit $1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.12356.101.13.2.1.1.12.{#SNMPINDEX}</snmp_oid>
+                            <key>fgHaStatsSyncStatus[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>7</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>High availability</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>FgHaStatsSyncStatusType</name>
+                            </valuemap>
                             <logtimefmt/>
                             <application_prototypes/>
                         </item_prototype>
@@ -670,6 +823,26 @@
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
+                            <description/>
+                            <type>0</type>
+                            <dependencies/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-FORTINET-HA:fgHaStatsMasterSerial[{#SNMPVALUE}].diff(0)}&gt;0</expression>
+                            <name>HA failover was detected possibly on {#SNMPVALUE}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                            <dependencies/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-FORTINET-HA:fgHaStatsSyncStatus[{#SNMPVALUE}].last()}=0 and {ZBX-FORTINET-HA:fgHaAutoSync.last()}=2</expression>
+                            <name>HA out-of-sync on unit {#SNMPVALUE} was detected</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
                             <description/>
                             <type>0</type>
                             <dependencies/>
@@ -781,7 +954,7 @@
                             </graph_items>
                         </graph_prototype>
                         <graph_prototype>
-                            <name>Network bandwidth usage for unit {#SNMPVALUE}</name>
+                            <name>Network bandwidth usage for cluster unit {#SNMPVALUE}</name>
                             <width>900</width>
                             <height>200</height>
                             <yaxismin>0.0000</yaxismin>
@@ -813,7 +986,7 @@
                             </graph_items>
                         </graph_prototype>
                         <graph_prototype>
-                            <name>Sessions count on unit {#SNMPVALUE}</name>
+                            <name>Sessions count on cluster unit {#SNMPVALUE}</name>
                             <width>900</width>
                             <height>200</height>
                             <yaxismin>0.0000</yaxismin>
@@ -918,6 +1091,19 @@
                 <mapping>
                     <value>3</value>
                     <newvalue>activePassive</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <value_map>
+            <name>FgHaStatsSyncStatusType</name>
+            <mappings>
+                <mapping>
+                    <value>0</value>
+                    <newvalue>unsynchronized</newvalue>
+                </mapping>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>synchronized</newvalue>
                 </mapping>
             </mappings>
         </value_map>

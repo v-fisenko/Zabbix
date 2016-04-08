@@ -6,18 +6,22 @@ This template use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover a
 Items
 -----
 
-  * Configuration of automatic synchronization
-  * High availability cluster group name
-  * High availability cluster priority
-  * High availability  mode
-  * Load-balancing schedule of cluster
-  * Status of a master override flag
+  * HA config - Auto Config Sync
+  * HA config - Group ID
+  * HA config - Group Name
+  * HA config - Load-balancing Schedule
+  * HA config - Master Override
+  * HA config - Mode
+  * HA config - Unit Priority
   * Discovery: CPU usage for each cluster unit
+  * Discovery: current synchronization status for each cluster unit
   * Discovery: current session count for each cluster unit
   * Discovery: memory usage for each cluster unit
   * Discovery: network bandwidth usage for each cluster unit
   * Discovery: number of anti-virus events triggered for each cluster unit
   * Discovery: number of IDS/IPS events triggered for each cluster unit
+  * Discovery: device serial number for each cluster unit
+  * Discovery: serial number of master unit during last sync attempt from each cluster unit
 
 Triggers
 --------
@@ -28,9 +32,12 @@ Triggers
   * **[AVERAGE]** => Memory usage for each unit exceeded 70%
   * **[AVERAGE]** => CPU usage for each unit exceeded 60%
   * **[AVERAGE]** => An increase of 30% of active sessions for each unit was detected
+  * **[AVERAGE]** => HA failover was detected (serial number of master unit was changed)
   * **[WARNING]** => Memory usage for each unit exceeded 60%
   * **[WARNING]** => CPU usage for each unit exceeded 50%
   * **[WARNING]** => An increase of 20% of active sessions for each unit was detected
+  * **[WARNING]** => HA out-of-sync was detected on each unit
+  * **[INFORMATION]** => Serial Number of each unit was changed
 
 Graphs
 ------
@@ -59,9 +66,12 @@ Installation
   * 1 => standalone
   * 2 => activeActive
   * 3 => activePassive
-4. Import **zbx-fortinet-ha.xml** file into Zabbix.
-5. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
-6. Associate **ZBX-FORTINET-HA** template to the host.
+5. Add a value mapping named `FgHaStatsSyncStatusType` with the following values:
+  * 0 => unsynchronized
+  * 1 => synchronized
+6. Import **zbx-fortinet-ha.xml** file into Zabbix.
+7. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
+8. Associate **ZBX-FORTINET-HA** template to the host.
 
 ### Requirements
 
