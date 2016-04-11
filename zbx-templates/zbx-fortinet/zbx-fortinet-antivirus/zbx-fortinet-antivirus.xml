@@ -852,367 +852,547 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(600)} and {ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(600)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of over-sized file transmission blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of over-sized file transmission blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of over-sized file transmission detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of over-sized file transmission detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of virus transmission blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of virus transmission blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of virus transmission detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of virus transmission detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of virus transmission over FTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of virus transmission over FTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of virus transmission over FTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of virus transmission over FTP detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of virus transmission over HTTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of virus transmission over HTTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of virus transmission over HTTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of virus transmission over HTTP detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of virus transmission over IMAP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of virus transmission over IMAP blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of virus transmission over IMAP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of virus transmission over IMAP detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of virus transmission over IM protocols blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of virus transmission over IM protocols blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of virus transmission over IM protocols detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of virus transmission over IM protocols detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of virus transmission over NNTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of virus transmission over NNTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of virus transmission over NNTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of virus transmission over NNTP detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of virus transmission over POP3 blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of virus transmission over POP3 blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of virus transmission over POP3 detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of virus transmission over POP3 detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of virus transmission over SMTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of virus transmission over SMTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.2*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.2*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 20% of virus transmission over SMTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 30% of virus transmission over SMTP detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of over-sized file transmission blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of over-sized file transmission blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of over-sized file transmission detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of over-sized file transmission detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of virus transmission blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of virus transmission blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of virus transmission detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of virus transmission detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of virus transmission over FTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of virus transmission over FTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of virus transmission over FTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of virus transmission over FTP detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of virus transmission over HTTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of virus transmission over HTTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of virus transmission over HTTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of virus transmission over HTTP detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of virus transmission over IMAP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of virus transmission over IMAP blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of virus transmission over IMAP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of virus transmission over IMAP detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of virus transmission over IM protocols blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of virus transmission over IM protocols blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of virus transmission over IM protocols detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of virus transmission over IM protocols detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of virus transmission over NNTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of virus transmission over NNTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of virus transmission over NNTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of virus transmission over NNTP detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of virus transmission over POP3 blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of virus transmission over POP3 blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of virus transmission over POP3 detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of virus transmission over POP3 detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of virus transmission over SMTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of virus transmission over SMTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.3*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)} and {ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(600)}&lt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.3*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 30% of virus transmission over SMTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>An increase of 40% of virus transmission over SMTP detected in the virtual domain {#SNMPVALUE} was detected</name>
+                                    <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
+                                </dependency>
+                            </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(600)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of over-sized file transmission blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1222,7 +1402,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvOversizedDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of over-sized file transmission detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1232,7 +1412,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(600)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of virus transmission blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1242,7 +1422,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(600)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of virus transmission detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1252,7 +1432,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of virus transmission over FTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1262,7 +1442,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvFTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of virus transmission over FTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1272,7 +1452,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of virus transmission over HTTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1282,7 +1462,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvHTTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of virus transmission over HTTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1292,7 +1472,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of virus transmission over IMAP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1302,7 +1482,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMAPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of virus transmission over IMAP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1312,7 +1492,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of virus transmission over IM protocols blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1322,7 +1502,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvIMVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of virus transmission over IM protocols detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1332,7 +1512,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of virus transmission over NNTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1342,7 +1522,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvNNTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of virus transmission over NNTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1352,7 +1532,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of virus transmission over POP3 blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1362,7 +1542,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvPOP3VirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of virus transmission over POP3 detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1372,7 +1552,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusBlocked[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of virus transmission over SMTP blocked in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>
@@ -1382,7 +1562,7 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(600)}&gt;0.4*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].last(0)}&gt;1.4*{ZBX-FORTINET-ANTIVIRUS:fgAvSMTPVirusDetected[{#SNMPVALUE}].avg(600)}</expression>
                             <name>An increase of 40% of virus transmission over SMTP detected in the virtual domain {#SNMPVALUE} was detected</name>
                             <url/>
                             <status>0</status>

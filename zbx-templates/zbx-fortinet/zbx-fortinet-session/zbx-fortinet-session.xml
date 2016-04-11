@@ -763,47 +763,67 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>({ZBX-FORTINET-SESSION:fgSysSesCount.last(0)}-{ZBX-FORTINET-SESSION:fgSysSesCount.avg(86400)})&gt;0.2 * {ZBX-FORTINET-SESSION:fgSysSesCount.last(0)} and ({ZBX-FORTINET-SESSION:fgSysSesCount.last(0)}-{ZBX-FORTINET-SESSION:fgSysSesCount.avg(86400)})&lt;0.3 * {ZBX-FORTINET-SESSION:fgSysSesCount.last(0)}</expression>
+            <expression>{ZBX-FORTINET-SESSION:fgSysSesCount.last(0)}&gt;1.2*{ZBX-FORTINET-SESSION:fgSysSesCount.avg(86400)}</expression>
             <name>An increase of 20% of ipv4 active sessions was detected</name>
             <url/>
             <status>0</status>
             <priority>3</priority>
             <description/>
             <type>0</type>
-            <dependencies/>
+            <dependencies>
+                <dependency>
+                    <name>An increase of 30% of ipv4 active sessions was detected</name>
+                    <expression>{ZBX-FORTINET-SESSION:fgSysSesCount.last(0)}&gt;1.3*{ZBX-FORTINET-SESSION:fgSysSesCount.avg(86400)}</expression>
+                </dependency>
+            </dependencies>
         </trigger>
         <trigger>
-            <expression>({ZBX-FORTINET-SESSION:fgSysSes6Count.last(0)}-{ZBX-FORTINET-SESSION:fgSysSes6Count.avg(86400)})&gt;0.2 * {ZBX-FORTINET-SESSION:fgSysSes6Count.last(0)} and ({ZBX-FORTINET-SESSION:fgSysSes6Count.last(0)}-{ZBX-FORTINET-SESSION:fgSysSes6Count.avg(86400)})&lt;0.3 * {ZBX-FORTINET-SESSION:fgSysSes6Count.last(0)}</expression>
+            <expression>{ZBX-FORTINET-SESSION:fgSysSes6Count.last(0)}&gt;1.2*{ZBX-FORTINET-SESSION:fgSysSes6Count.avg(86400)}</expression>
             <name>An increase of 20% of ipv6 active sessions was detected</name>
             <url/>
             <status>0</status>
             <priority>3</priority>
             <description/>
             <type>0</type>
-            <dependencies/>
+            <dependencies>
+                <dependency>
+                    <name>An increase of 30% of ipv6 active sessions was detected</name>
+                    <expression>{ZBX-FORTINET-SESSION:fgSysSes6Count.last(0)}&gt;1.3*{ZBX-FORTINET-SESSION:fgSysSes6Count.avg(86400)}</expression>
+                </dependency>
+            </dependencies>
         </trigger>
         <trigger>
-            <expression>({ZBX-FORTINET-SESSION:fgSysSesCount.last(0)}-{ZBX-FORTINET-SESSION:fgSysSesCount.avg(86400)})&gt;0.3 * {ZBX-FORTINET-SESSION:fgSysSesCount.last(0)} and ({ZBX-FORTINET-SESSION:fgSysSesCount.last(0)}-{ZBX-FORTINET-SESSION:fgSysSesCount.avg(86400)})&lt;0.4 * {ZBX-FORTINET-SESSION:fgSysSesCount.last(0)}</expression>
+            <expression>{ZBX-FORTINET-SESSION:fgSysSesCount.last(0)}&gt;1.3*{ZBX-FORTINET-SESSION:fgSysSesCount.avg(86400)}</expression>
             <name>An increase of 30% of ipv4 active sessions was detected</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
             <description/>
             <type>0</type>
-            <dependencies/>
+            <dependencies>
+                <dependency>
+                    <name>An increase of 40% of ipv4 active sessions was detected</name>
+                    <expression>{ZBX-FORTINET-SESSION:fgSysSesCount.last(0)}&gt;1.4*{ZBX-FORTINET-SESSION:fgSysSesCount.avg(86400)}</expression>
+                </dependency>
+            </dependencies>
         </trigger>
         <trigger>
-            <expression>({ZBX-FORTINET-SESSION:fgSysSes6Count.last(0)}-{ZBX-FORTINET-SESSION:fgSysSes6Count.avg(86400)})&gt;0.3 * {ZBX-FORTINET-SESSION:fgSysSes6Count.last(0)} and ({ZBX-FORTINET-SESSION:fgSysSes6Count.last(0)}-{ZBX-FORTINET-SESSION:fgSysSes6Count.avg(86400)})&lt;0.4 * {ZBX-FORTINET-SESSION:fgSysSes6Count.last(0)}</expression>
+            <expression>{ZBX-FORTINET-SESSION:fgSysSes6Count.last(0)}&gt;1.3*{ZBX-FORTINET-SESSION:fgSysSes6Count.avg(86400)}</expression>
             <name>An increase of 30% of ipv6 active sessions was detected</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
             <description/>
             <type>0</type>
-            <dependencies/>
+            <dependencies>
+                <dependency>
+                    <name>An increase of 40% of ipv6 active sessions was detected</name>
+                    <expression>{ZBX-FORTINET-SESSION:fgSysSes6Count.last(0)}&gt;1.4*{ZBX-FORTINET-SESSION:fgSysSes6Count.avg(86400)}</expression>
+                </dependency>
+            </dependencies>
         </trigger>
         <trigger>
-            <expression>({ZBX-FORTINET-SESSION:fgSysSesCount.last(0)}-{ZBX-FORTINET-SESSION:fgSysSesCount.avg(86400)})&gt;0.4 * {ZBX-FORTINET-SESSION:fgSysSesCount.last(0)}</expression>
+            <expression>{ZBX-FORTINET-SESSION:fgSysSesCount.last(0)}&gt;1.4*{ZBX-FORTINET-SESSION:fgSysSesCount.avg(86400)}</expression>
             <name>An increase of 40% of ipv4 active sessions was detected</name>
             <url/>
             <status>0</status>
@@ -813,7 +833,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>({ZBX-FORTINET-SESSION:fgSysSes6Count.last(0)}-{ZBX-FORTINET-SESSION:fgSysSes6Count.avg(86400)})&gt;0.4 * {ZBX-FORTINET-SESSION:fgSysSes6Count.last(0)}</expression>
+            <expression>{ZBX-FORTINET-SESSION:fgSysSes6Count.last(0)}&gt;1.4*{ZBX-FORTINET-SESSION:fgSysSes6Count.avg(86400)}</expression>
             <name>An increase of 40% of ipv6 active sessions was detected</name>
             <url/>
             <status>0</status>

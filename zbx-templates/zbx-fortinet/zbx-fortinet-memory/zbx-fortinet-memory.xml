@@ -677,7 +677,7 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>({ZBX-FORTINET-MEMORY:fgSysMemUsageBytesUsed-.avg(600)}/{ZBX-FORTINET-MEMORY:fgSysMemCapacity.avg(600)})&gt;50</expression>
+            <expression>({ZBX-FORTINET-MEMORY:fgSysMemUsageBytesUsed-.avg(600)}/{ZBX-FORTINET-MEMORY:fgSysMemCapacity.last(0)})&gt;50</expression>
             <name>Memory usage(used-) exceeded 50%</name>
             <url/>
             <status>0</status>
@@ -687,24 +687,34 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-FORTINET-MEMORY:fgSysMemUsage.avg(600)}&gt;60 and {ZBX-FORTINET-MEMORY:fgSysMemUsage.avg(600)}&lt;70</expression>
+            <expression>{ZBX-FORTINET-MEMORY:fgSysMemUsage.avg(600)}&gt;60</expression>
             <name>Memory usage exceeded 60%</name>
             <url/>
             <status>0</status>
             <priority>2</priority>
             <description/>
             <type>0</type>
-            <dependencies/>
+            <dependencies>
+                <dependency>
+                    <name>Memory usage exceeded 70%</name>
+                    <expression>{ZBX-FORTINET-MEMORY:fgSysMemUsage.avg(600)}&gt;70</expression>
+                </dependency>
+            </dependencies>
         </trigger>
         <trigger>
-            <expression>{ZBX-FORTINET-MEMORY:fgSysMemUsage.avg(600)}&gt;70 and {ZBX-FORTINET-MEMORY:fgSysMemUsage.avg(600)}&lt;80</expression>
+            <expression>{ZBX-FORTINET-MEMORY:fgSysMemUsage.avg(600)}&gt;70</expression>
             <name>Memory usage exceeded 70%</name>
             <url/>
             <status>0</status>
             <priority>3</priority>
             <description/>
             <type>0</type>
-            <dependencies/>
+            <dependencies>
+                <dependency>
+                    <name>Memory usage exceeded 80%</name>
+                    <expression>{ZBX-FORTINET-MEMORY:fgSysMemUsage.avg(600)}&gt;80</expression>
+                </dependency>
+            </dependencies>
         </trigger>
         <trigger>
             <expression>{ZBX-FORTINET-MEMORY:fgSysMemUsage.avg(600)}&gt;80</expression>
