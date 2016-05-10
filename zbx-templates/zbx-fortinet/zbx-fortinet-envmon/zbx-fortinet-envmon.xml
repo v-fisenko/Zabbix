@@ -735,10 +735,7 @@
             <percent_right>0.0000</percent_right>
             <ymin_type_1>1</ymin_type_1>
             <ymax_type_1>2</ymax_type_1>
-            <ymin_item_1>
-                <host>ZBX-FORTINET-ENVMON</host>
-                <key>fgSysDiskCapacity</key>
-            </ymin_item_1>
+            <ymin_item_1>0</ymin_item_1>
             <ymax_item_1>
                 <host>ZBX-FORTINET-ENVMON</host>
                 <key>fgSysDiskCapacity</key>
