@@ -285,7 +285,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>vpn.vdom[&quot;-d&quot;,&quot;{HOST.HOST}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;]</key>
+                            <key>vpn.vdom[&quot;-d&quot;,&quot;{HOST.IP}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>0</trends>
